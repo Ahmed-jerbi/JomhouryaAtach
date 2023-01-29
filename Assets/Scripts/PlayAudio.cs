@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayAudio : MonoBehaviour
 {
+    public bool playAnimation;
+    public GameObject StatusAnimUI;
     public AudioSource audiosource;
     public AudioClip audioClip;
     private UnityEngine.Events.UnityEvent MarkerFound;
@@ -19,5 +21,11 @@ public class PlayAudio : MonoBehaviour
         Debug.Log("play audio");
         audiosource.clip =audioClip;
         audiosource.Play();
+
+        //UI animation
+        if (playAnimation)
+        {
+            StatusAnimUI.SetActive(true);
+        }
     }
 }
